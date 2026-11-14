@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-prompt-guard"
+version = "0.1.0"
+description = "LLM Prompt Protection & Validation (AI Safety) built with LangGraph"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["langgraph>=0.2"]
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+prompt-guard = "prompt_guard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["prompt_guard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
